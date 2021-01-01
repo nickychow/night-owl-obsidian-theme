@@ -5,12 +5,55 @@
   margin-right: -0.4em;
 }
 
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-size: var(--font-editor-size);
+  line-height: 1.5em;
+}
+
+.markdown-preview-section h1,
+.markdown-preview-section h2,
+.markdown-preview-section h3,
+.markdown-preview-section h4,
+.markdown-preview-section h5,
+.markdown-preview-section h6,
+.markdown-preview-section p,
+.markdown-preview-section pre {
+  position: relative;
+}
+
+.markdown-preview-section h1::after,
+.markdown-preview-section h2::after,
+.markdown-preview-section h3::after,
+.markdown-preview-section h4::after,
+.markdown-preview-section h5::after,
+.markdown-preview-section h6::after {
+  position: absolute;
+  right: calc(100% + 0.75em);
+  top: 0;
+  color: #5b5b5b;
+  font-size: 1rem;
+  font-weight: bold;
+  font-variant: "small-caps";
+}
+
 // H1
 .cm-header-1,
 .markdown-preview-section h1 {
-  font-size: 2.074rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h1) !important;
+}
+
+.markdown-preview-section h1 {
+  font-size: 2.074rem !important;
+}
+
+.markdown-preview-section h1::after {
+  content: "H1";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-1 {
@@ -21,9 +64,19 @@
 // H2
 .cm-header-2,
 .markdown-preview-section h2 {
-  font-size: 1.728rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h2) !important;
+}
+
+.markdown-preview-section h2 {
+  font-size: 1.6rem !important;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid hsl(0, 0%, 18%) !important;
+  margin: 2rem 0 0.7rem 0;
+}
+
+.markdown-preview-section h2::after {
+  content: "H2";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-2 {
@@ -34,9 +87,17 @@
 // H3
 .cm-header-3,
 .markdown-preview-section h3 {
-  font-size: 1.44rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h3) !important;
+}
+
+.markdown-preview-section h3 {
+  font-size: 1.2rem !important;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.markdown-preview-section h3::after {
+  content: "H3";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-3 {
@@ -47,9 +108,12 @@
 // H4
 .cm-header-4,
 .markdown-preview-section h4 {
-  font-size: 1.2rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h4) !important;
+}
+
+.markdown-preview-section h4 {
+  font-size: 1.1rem !important;
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-4 {

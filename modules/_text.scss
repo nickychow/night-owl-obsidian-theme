@@ -36,6 +36,10 @@ a {
   }
 }
 
+.markdown-preview-section a.external-link {
+  text-decoration: none;
+}
+
 // Spell Error
 .CodeMirror .cm-spell-error {
   background-image: unset;
@@ -46,6 +50,16 @@ a {
 .cm-s-obsidian span.cm-formatting-list {
   font-weight: 500;
   color: var(--list-mark);
+}
+
+.markdown-preview-section ol > li::marker,
+.markdown-preview-section ul > li::marker {
+  color: var(--list-mark);
+}
+
+.markdown-preview-section ol > li,
+.markdown-preview-section ul > li {
+  margin-left: -10px;
 }
 
 // Task Checklist

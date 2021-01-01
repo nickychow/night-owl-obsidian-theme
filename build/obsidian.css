@@ -169,10 +169,53 @@
 }
 
 .cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-size: var(--font-editor-size);
+  line-height: 1.5em;
+}
+
+.markdown-preview-section h1,
+.markdown-preview-section h2,
+.markdown-preview-section h3,
+.markdown-preview-section h4,
+.markdown-preview-section h5,
+.markdown-preview-section h6,
+.markdown-preview-section p,
+.markdown-preview-section pre {
+  position: relative;
+}
+
+.markdown-preview-section h1::after,
+.markdown-preview-section h2::after,
+.markdown-preview-section h3::after,
+.markdown-preview-section h4::after,
+.markdown-preview-section h5::after,
+.markdown-preview-section h6::after {
+  position: absolute;
+  right: calc(100% + 0.75em);
+  top: 0;
+  color: #5b5b5b;
+  font-size: 1rem;
+  font-weight: bold;
+  font-variant: "small-caps";
+}
+
+.cm-header-1,
 .markdown-preview-section h1 {
-  font-size: 2.074rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h1) !important;
+}
+
+.markdown-preview-section h1 {
+  font-size: 2.074rem !important;
+}
+
+.markdown-preview-section h1::after {
+  content: "H1";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-1 {
@@ -182,9 +225,19 @@
 
 .cm-header-2,
 .markdown-preview-section h2 {
-  font-size: 1.728rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h2) !important;
+}
+
+.markdown-preview-section h2 {
+  font-size: 1.6rem !important;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #2e2e2e !important;
+  margin: 2rem 0 0.7rem 0;
+}
+
+.markdown-preview-section h2::after {
+  content: "H2";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-2 {
@@ -194,9 +247,17 @@
 
 .cm-header-3,
 .markdown-preview-section h3 {
-  font-size: 1.44rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h3) !important;
+}
+
+.markdown-preview-section h3 {
+  font-size: 1.2rem !important;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.markdown-preview-section h3::after {
+  content: "H3";
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-3 {
@@ -206,9 +267,12 @@
 
 .cm-header-4,
 .markdown-preview-section h4 {
-  font-size: 1.2rem !important;
   font-weight: 500 !important;
   color: var(--text-title-h4) !important;
+}
+
+.markdown-preview-section h4 {
+  font-size: 1.1rem !important;
 }
 
 .cm-formatting.cm-formatting-header.cm-formatting-header-4 {
@@ -265,6 +329,10 @@ a:hover {
   color: var(--link-hover);
 }
 
+.markdown-preview-section a.external-link {
+  text-decoration: none;
+}
+
 .CodeMirror .cm-spell-error {
   background-image: unset;
   border-bottom: 1px var(--text-error) dashed;
@@ -273,6 +341,16 @@ a:hover {
 .cm-s-obsidian span.cm-formatting-list {
   font-weight: 500;
   color: var(--list-mark);
+}
+
+.markdown-preview-section ol > li::marker,
+.markdown-preview-section ul > li::marker {
+  color: var(--list-mark);
+}
+
+.markdown-preview-section ol > li,
+.markdown-preview-section ul > li {
+  margin-left: -10px;
 }
 
 .cm-s-obsidian span.cm-formatting-task {
@@ -318,6 +396,42 @@ span.cm-hashtag-end {
   border-bottom: 1px solid var(--tag-border);
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
+}
+
+.tag {
+  background-color: var(--text-accent);
+  border: none;
+  color: white !important;
+  font-size: 1em;
+  line-height: 1.6em;
+  padding: 0px 10px 3px 8px;
+  text-align: center;
+  text-decoration: none !important;
+  display: inline-block;
+  margin: 0px 4px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+.tag:hover {
+  color: white;
+  background-color: var(--text-accent-hover);
+}
+
+.tag[href^="#obsidian"] {
+  background-color: #4d3ca6;
+}
+
+.tag[href^="#important"] {
+  background-color: red;
+}
+
+.tag[href^="#complete"] {
+  background-color: green;
+}
+
+.tag[href^="#inprogress"] {
+  background-color: orange;
 }
 
 .checkbox-container {
@@ -386,6 +500,67 @@ button.mod-cta {
   background-color: var(--selected-active);
 }
 
+.markdown-preview-section blockquote {
+  position: relative;
+  padding: 1rem 0 1rem 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0px solid var(--list-mark);
+  border-left-width: 4px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  display: block;
+}
+
+.markdown-preview-view :not(pre) > code {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.markdown-preview-view pre {
+  border-radius: 5px !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.markdown-preview-view pre code {
+  background-color: unset;
+}
+
+.markdown-preview-view ul > li.task-list-item {
+  margin-left: 0em;
+}
+.markdown-preview-view ul > li.task-list-item input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  border: 1px solid var(--background-modifier-border) !important;
+  padding: 0;
+  filter: none;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 6px;
+  line-height: 0;
+  margin-right: 10px;
+  margin-left: -18px;
+  transition: background 0.3s;
+}
+.markdown-preview-view ul > li.task-list-item input[type=checkbox]:hover {
+  background-color: var(--text-title-h2-muted) !important;
+}
+.markdown-preview-view ul > li.task-list-item input[type=checkbox]:focus {
+  outline: none;
+  background-color: var(--task-mark) !important;
+}
+.markdown-preview-view ul > li.task-list-item.is-checked input[type=checkbox] {
+  background-color: var(--task-mark) !important;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml; utf8, <svg width="12px" height="10px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-4.000000, -6.000000)" fill="%23131421"><path d="M8.1043257,14.0367999 L4.52468714,10.5420499 C4.32525014,10.3497722 4.32525014,10.0368095 4.52468714,9.8424863 L5.24777413,9.1439454 C5.44721114,8.95166768 5.77142411,8.95166768 5.97086112,9.1439454 L8.46638057,11.5903727 L14.0291389,6.1442083 C14.2285759,5.95193057 14.5527889,5.95193057 14.7522259,6.1442083 L15.4753129,6.84377194 C15.6747499,7.03604967 15.6747499,7.35003511 15.4753129,7.54129009 L8.82741268,14.0367999 C8.62797568,14.2290777 8.3037627,14.2290777 8.1043257,14.0367999"></path></g></g></svg>');
+}
+
 :root {
   --font-monospace: "Jetbrains Mono", "Source Code Pro", monospace;
+  --default-font: "Lato", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --font-editor-size: 1.0em;
 }

@@ -12,8 +12,13 @@
 @use "modules/fixes";
 @use "modules/button";
 @use "modules/selected-active";
+@use "modules/blockquote";
+@use "modules/code";
+@use "modules/checkboxes";
 
 // Font
 :root {
   --font-monospace: "Jetbrains Mono", "Source Code Pro", monospace;
+  --default-font: "Lato", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --font-editor-size: 1.0em;
 }
