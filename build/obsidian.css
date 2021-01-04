@@ -1,8 +1,9 @@
+@charset "UTF-8";
 .theme-dark {
   --background-primary: #031525;
-  --background-primary-alt: #031525;
+  --background-primary-alt: #000C1D;
   --background-secondary: #031525;
-  --background-secondary-alt: #031525;
+  --background-secondary-alt: #000C1D;
   --background-modifier-border: #1d4667;
   --border: #0b2942;
   --text-normal: #d6deeb;
@@ -10,19 +11,20 @@
   --text-bold-muted: #997749;
   --text-italic: #82aaff;
   --text-italic-muted: #3a5fad;
-  --text-faint: #d6deeb;
-  --text-muted: #d6deeb;
-  --text-accent: #f78c6c;
+  --text-faint: #72829b;
+  --text-muted: #72829b;
+  --text-accent: #0fb6d6;
   --text-on-accent: #d6deeb;
+  --text-sub-accent:#275963;
   --text-error: #ff6363;
   --text-selection: #1d4667;
   --text-highlight-bg: #1d4667;
   --link: #f78c6c;
   --link-hover: #f9a991;
-  --text-title-h1: #c792ea;
-  --text-title-h1-muted: #7a4b99;
-  --text-title-h2: #82aaff;
-  --text-title-h2-muted: #3a5fad;
+  --text-title-h1: #82aaff;
+  --text-title-h1-muted: #3a5fad;
+  --text-title-h2: #0fb6d6;
+  --text-title-h2-muted: #275963;
   --text-title-h3: #7fdbca;
   --text-title-h3-muted: #4b857a;
   --text-title-h4: #addb67;
@@ -33,8 +35,8 @@
   --interactive-before: #1d4667;
   --button-bg: #c792ea;
   --button-text: #010e1a;
-  --icon: #d6deeb;
-  --icon-hover: #ecc48d;
+  --icon: #637777;
+  --icon-hover: #8BADC1;
   --tag-text: #82aaff;
   --tag-border: #82aaff;
   --setting-checkbox: #ff6363;
@@ -50,120 +52,116 @@
   --selected-active: #0b2942;
 }
 
+/** GENERAL STYLES **/
+/** TITLE BAR **/
 .titlebar {
-  background-color: unset;
-  border-bottom: 1px solid var(--border);
+  background-color: var(--background-primary-alt);
 }
 
+.titlebar-text {
+  color: var(--text-accent);
+}
+
+/** STATUS BAR **/
 .status-bar {
-  max-height: unset;
   padding-bottom: 2px;
   font-size: 12px;
-  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  background-color: var(--background-primary-alt);
+  border-color: var(--background-primary-alt);
 }
 
-.nav-file-title,
-.nav-folder-title {
-  font-size: 13px;
+/** NAVIGATION / SIDE-DOCK **/
+.nav-folder-collapse-indicator {
+  color: var(--text-accent);
 }
 
+.nav-file.is-active > .nav-file-title,
+.nav-file.is-active > .nav-folder-title,
+.nav-file.is-active > .nav-folder-collapse-indicator,
+.nav-folder.is-active > .nav-file-title,
+.nav-folder.is-active > .nav-folder-title,
+.nav-folder.is-active > .nav-folder-collapse-indicator {
+  color: var(--text-accent);
+}
+
+/** Left side menu -- collapsed **/
+.workspace-ribbon.is-collapsed {
+  background-color: var(--background-primary-alt);
+}
+
+/** Left side menu border **/
+.workspace-ribbon.mod-left.is-collapsed,
+.workspace-ribbon.mod-right.is-collapsed {
+  border-color: var(--background-primary-alt);
+}
+
+/** Navigation tabs **/
+.workspace-tab-header.is-active {
+  color: var(--text-accent);
+  opacity: 1;
+}
+
+/** Folder List main title **/
+.nav-folder.mod-root > .nav-file-title,
+.nav-folder.mod-root > .nav-folder-title {
+  color: var(--text-accent);
+}
+
+/** Folder Lists **/
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {
+  color: var(--text-accent);
+}
+
+/** Folder list active arrow **/
+body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator,
+body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
+  color: var(--text-accent);
+}
+
+/** Header Title **/
 .view-header-title {
   font-size: 14px;
 }
 
-.workspace-ribbon.mod-left {
-  border-right: 1px solid var(--border);
+/** View Header title **/
+.workspace-leaf.mod-active .view-header-title {
+  color: var(--text-accent);
 }
 
-.workspace-ribbon.mod-right {
-  border-left: 1px solid var(--border);
+/** Little tag styles (at links) **/
+.pane-list-item:hover .pane-list-item-ending-flair {
+  color: var(--text-accent);
+  background-color: var(--background-secondary);
 }
 
-.view-header {
-  border-bottom: 1px solid var(--border) !important;
+/** SETTINGS STYLES **/
+.workspace-drop-overlay {
+  background-color: var(--background-primary-alt);
 }
 
-.workspace-tab-header-container {
-  height: 36px;
-  padding-top: 4px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+/* except list markers */
+span.cm-formatting-list,
+span.cm-formatting-code-block.cm-hmd-codeblock,
+span.cm-formatting-header {
+  display: inline !important;
 }
 
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
-.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-  width: 1px;
-  height: 100vh;
-  background-color: var(--border);
+.theme-dark .notice {
+  color: var(--text-accent);
+  background-color: var(--background-primary-alt);
 }
 
-.workspace-tabs {
-  padding: 0 0 30px 0;
-}
-
-.nav-header {
-  padding: 8px 20px 4px 20px;
-  border-bottom: 1px solid var(--border);
-}
-
-.workspace-leaf-content[data-type=search] .nav-action-button,
-.workspace-leaf-content[data-type=backlink] .nav-action-button {
-  padding: 0 10px;
-  margin: 0;
-  border-radius: 4px;
-}
-
-.nav-buttons-container {
-  justify-content: left;
-  margin-left: -20px;
-}
-
-.side-dock-ribbon-action {
-  padding: 5px 0;
-}
-
-.workspace-ribbon-collapse-btn {
-  padding: 9px 5px 4px 5px;
-  margin-top: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.workspace-ribbon.mod-right.is-collapsed {
-  border-left-color: var(--border);
-}
-
-.workspace-ribbon.mod-left.is-collapsed {
-  border-right-color: var(--border);
-}
-
-.nav-files-container {
-  overflow-y: hidden;
-}
-
-.cm-s-obsidian .CodeMirror-linenumber {
-  color: var(--line-numbers);
-}
-
-.CodeMirror-gutter-wrapper {
-  left: -40px !important;
-}
-
-.side-dock-settings {
-  margin-bottom: 22px;
-}
-
-.side-dock-actions {
-  margin-top: 5px;
-}
-
-.workspace-tab-container-inner {
-  margin-left: -20px;
-}
-
-.view-actions {
-  margin-right: -10px;
-}
-
+/**************************************
+| MAIN EDITOR / PREVIEW MODE
+| -------------------------------------
+| Write in the same section to keep them
+| relatively sync with css.
+/**************************************/
+/**-------------------**
+| HEADING STYLES
+**--------------------**/
 .cm-formatting.cm-formatting-header {
   margin-right: -0.4em;
 }
@@ -184,8 +182,7 @@
 .markdown-preview-section h4,
 .markdown-preview-section h5,
 .markdown-preview-section h6,
-.markdown-preview-section p,
-.markdown-preview-section pre {
+.markdown-preview-section p {
   position: relative;
 }
 
@@ -196,12 +193,12 @@
 .markdown-preview-section h5::after,
 .markdown-preview-section h6::after {
   position: absolute;
-  right: calc(100% + 0.75em);
   top: 0;
-  color: #5b5b5b;
+  right: calc(100% + 0.75em);
   font-size: 1rem;
   font-weight: bold;
   font-variant: "small-caps";
+  color: var(--text-muted) !important;
 }
 
 .cm-header-1,
@@ -211,7 +208,9 @@
 }
 
 .markdown-preview-section h1 {
-  font-size: 2.074rem !important;
+  padding-bottom: 0.3rem !important;
+  margin: 1rem 0 !important;
+  font-size: 2rem !important;
 }
 
 .markdown-preview-section h1::after {
@@ -230,10 +229,10 @@
 }
 
 .markdown-preview-section h2 {
+  padding-bottom: 0.3em !important;
+  margin: 2rem 0 0.7rem 0 !important;
   font-size: 1.6rem !important;
-  padding-bottom: 0.3em;
   border-bottom: 1px solid #2e2e2e !important;
-  margin: 2rem 0 0.7rem 0;
 }
 
 .markdown-preview-section h2::after {
@@ -252,8 +251,8 @@
 }
 
 .markdown-preview-section h3 {
+  margin: 1.5rem 0 0.5rem 0 !important;
   font-size: 1.2rem !important;
-  margin: 1.5rem 0 0.5rem 0;
 }
 
 .markdown-preview-section h3::after {
@@ -295,6 +294,9 @@
   color: var(--text-title-h5-muted) !important;
 }
 
+/**-------------------**
+| STRONG/BOLD STYLES
+**--------------------**/
 .cm-strong,
 .markdown-preview-section strong {
   font-weight: 500;
@@ -333,6 +335,14 @@ a:hover {
   text-decoration: none;
 }
 
+/**-------------------**
+| <KBD> STYLING
+**--------------------**/
+strong kbd,
+.cm-strong kbd {
+  -webkit-text-fill-color: initial;
+}
+
 .CodeMirror .cm-spell-error {
   background-image: unset;
   border-bottom: 1px var(--text-error) dashed;
@@ -358,6 +368,22 @@ a:hover {
   color: var(--task-mark);
 }
 
+/**-------------------**
+| FRONT-META STYLING
+**--------------------**/
+.cm-s-obsidian span.cm-def,
+.cm-s-obsidian span.cm-atom {
+  color: var(--text-faint);
+}
+
+.cm-s-obsidian span.cm-meta {
+  color: var(--text-accent);
+}
+
+.cm-s-obsidian span.cm-string {
+  color: var(--text-sub-accent);
+}
+
 .CodeMirror,
 .CodeMirror-cursors,
 .CodeMirror-cursor {
@@ -373,6 +399,9 @@ a:hover {
   background-color: var(--vim-cursor) !important;
 }
 
+/**-------------------**
+| TAG STYLING
+**--------------------**/
 .cm-s-obsidian span.cm-hashtag {
   padding-bottom: 1px;
   font-family: var(--font-monospace);
@@ -398,42 +427,40 @@ span.cm-hashtag-end {
   border-bottom-right-radius: 25px;
 }
 
+/** tags */
 .tag {
-  background-color: var(--text-accent);
-  border: none;
-  color: white !important;
-  font-size: 1em;
-  line-height: 1.6em;
-  padding: 0px 10px 3px 8px;
-  text-align: center;
-  text-decoration: none !important;
-  display: inline-block;
-  margin: 0px 4px;
-  cursor: pointer;
-  border-radius: 14px;
+  padding: 0px 10px 2px 8px;
+  font-size: 1rem;
+  color: var(--text-accent);
+  text-decoration: none;
+  white-space: nowrap;
+  background: linear-gradient(to bottom, #191621 0%, #191621 100%);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 0 0;
+  border: 2px solid var(--text-sub-accent);
+  border-radius: 2rem;
+  transition: all 400ms ease;
 }
-
 .tag:hover {
-  color: white;
-  background-color: var(--text-accent-hover);
+  color: var(--text-normal) !important;
+  background-size: 4px 50px;
+  border-color: var(--text-accent);
+  opacity: 1;
 }
 
-.tag[href^="#obsidian"] {
-  background-color: #4d3ca6;
+h1 a.tag,
+h2 a.tag,
+h3 a.tag,
+h4 a.tag,
+h5 a.tag,
+h6 a.tag {
+  font-size: inherit !important;
 }
 
-.tag[href^="#important"] {
-  background-color: red;
-}
-
-.tag[href^="#complete"] {
-  background-color: green;
-}
-
-.tag[href^="#inprogress"] {
-  background-color: orange;
-}
-
+/**-------------------**
+| CUSTOMIZED TAG COLOURS
+**--------------------**/
 .checkbox-container {
   background-color: var(--setting-checkbox);
 }
@@ -450,41 +477,22 @@ span.cm-hashtag-end {
   background-color: var(--background-primary);
 }
 
+/** Side-dock icons **/
 .side-dock-ribbon-tab,
 .side-dock-ribbon-action,
-.workspace-tab-header-inner-icon,
-.nav-action-button,
-.view-action,
-.workspace-ribbon-collapse-btn {
+.workspace-ribbon-collapse-btn,
+.workspace-tab-header {
   color: var(--icon);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 350ms ease-in-out;
 }
 .side-dock-ribbon-tab:hover,
 .side-dock-ribbon-action:hover,
-.workspace-tab-header-inner-icon:hover,
-.nav-action-button:hover,
-.view-action:hover,
-.workspace-ribbon-collapse-btn:hover {
-  color: var(--icon);
-}
-
-.cm-s-obsidian pre.HyperMD-list-line {
-  padding-top: unset;
-}
-
-.mod-macos {
-  padding-top: 32px !important;
-}
-
-.mod-macos .titlebar {
-  height: 32px !important;
-}
-
-.mod-macos .titlebar-text {
-  line-height: 30px;
-}
-
-.mod-macos .titlebar-button {
-  padding-top: 4px;
+.workspace-ribbon-collapse-btn:hover,
+.workspace-tab-header:hover {
+  color: var(--icon-hover);
+  opacity: 1;
 }
 
 button.mod-cta {
@@ -492,75 +500,393 @@ button.mod-cta {
   background-color: var(--button-bg);
 }
 
-.nav-file-title.is-active, .nav-folder-title.is-active, body:not(.is-grabbing) .nav-file-title:hover, body:not(.is-grabbing) .nav-folder-title:hover {
-  background-color: var(--selected-active);
-}
-
-.suggestion-item.is-selected {
-  background-color: var(--selected-active);
-}
-
-.markdown-preview-section blockquote {
-  position: relative;
-  padding: 1rem 0 1rem 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 0px solid var(--list-mark);
-  border-left-width: 4px;
+/**-------------------**
+| BLOCKQUOTE STYLING
+**--------------------**/
+/* Remove blockquote left margin */
+blockquote {
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+}
+
+/* blockquote style overwrite */
+.markdown-preview-section blockquote {
+  position: relative;
   display: block;
+  padding: 1rem 0 1rem 1rem;
+  background-color: var(--background-primary-alt);
+  border: 0px solid var(--list-mark);
+  border-left-width: 4px;
 }
 
-.markdown-preview-view :not(pre) > code {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
-.markdown-preview-view pre {
-  border-radius: 5px !important;
-  background-color: rgba(0, 0, 0, 0.2) !important;
-}
-.markdown-preview-view pre code {
-  background-color: unset;
+/**-------------------**
+| INLINE CODE STYLING
+**--------------------**/
+.cm-s-obsidian span.cm-inline-code {
+  color: rgba(14, 210, 247, 0.9) !important;
 }
 
+.CodeMirror-activeline span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.cm-s-obsidian span.cm-inline-code.cm-formatting-code {
+  display: inline-flex;
+  min-width: 0.55rem;
+  max-width: 0.55rem;
+}
+
+/**-------------------**
+| CODE FENCE STYLING
+**--------------------**/
+pre {
+  position: relative;
+}
+
+pre[class*=language-]:before {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  z-index: 10;
+  padding: 0.1em 0.8em;
+  font-family: var(--font-monospace);
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--text-accent) !important;
+  text-transform: uppercase;
+  content: "";
+  background: var(--background-primary);
+  border-radius: 8px;
+}
+
+pre[class$=javascript]:before,
+pre[class$=js]:before {
+  content: "JavaScript";
+}
+
+pre[class$=typescript]:before,
+pre[class$=ts]:before {
+  content: "typescript";
+}
+
+pre[class$=html]:before {
+  content: "html";
+}
+
+pre[class$=css]:before {
+  content: "css";
+}
+
+pre[class$=bash]:before,
+pre[class$=zsh]:before,
+pre[class$=console]:before,
+pre[class$=shell]:before {
+  content: "Shell";
+}
+
+pre[class$=ps]:before,
+pre[class$=powershell]:before {
+  content: "PowerShell";
+}
+
+pre[class$=json]:before {
+  content: "Json";
+}
+
+pre[class$=yaml]:before {
+  content: "YAML";
+}
+
+pre[class$=python]:before {
+  content: "python";
+}
+
+pre[class$=rust]:before {
+  content: "Rust";
+}
+
+pre[class$=golang]:before,
+pre[class$=go]:before {
+  content: "golang";
+}
+
+.cm-s-obsidian .CodeMirror-linenumber {
+  font-size: 0.85rem;
+}
+
+.cm-s-obsidian pre.HyperMD-codeblock {
+  color: var(--text-accent);
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--background-primary-alt);
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg {
+  border: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg:before {
+  position: absolute;
+  top: -59%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  content: "";
+  background-color: var(--background-primary-alt);
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-end-bg {
+  border: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-end-bg:before {
+  position: absolute;
+  bottom: -59%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  content: "";
+  background-color: var(--background-primary-alt);
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+
+/* OBSIDIANITE CHECKBOXES */
 .markdown-preview-view ul > li.task-list-item {
   margin-left: 0em;
 }
 .markdown-preview-view ul > li.task-list-item input[type=checkbox] {
   appearance: none;
-  -webkit-appearance: none;
-  border-radius: 50%;
-  border: 1px solid var(--background-modifier-border) !important;
-  padding: 0;
-  filter: none;
-  width: 18px;
-  height: 18px;
   position: relative;
   top: 6px;
-  line-height: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
   margin-right: 10px;
   margin-left: -18px;
+  line-height: 0;
+  filter: none;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: 50%;
   transition: background 0.3s;
 }
 .markdown-preview-view ul > li.task-list-item input[type=checkbox]:hover {
   background-color: var(--text-title-h2-muted) !important;
 }
 .markdown-preview-view ul > li.task-list-item input[type=checkbox]:focus {
-  outline: none;
   background-color: var(--task-mark) !important;
+  outline: none;
 }
 .markdown-preview-view ul > li.task-list-item.is-checked input[type=checkbox] {
   background-color: var(--task-mark) !important;
+  background-image: url('data:image/svg+xml; utf8, <svg width="12px" height="10px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-4.000000, -6.000000)" fill="%23131421"><path d="M8.1043257,14.0367999 L4.52468714,10.5420499 C4.32525014,10.3497722 4.32525014,10.0368095 4.52468714,9.8424863 L5.24777413,9.1439454 C5.44721114,8.95166768 5.77142411,8.95166768 5.97086112,9.1439454 L8.46638057,11.5903727 L14.0291389,6.1442083 C14.2285759,5.95193057 14.5527889,5.95193057 14.7522259,6.1442083 L15.4753129,6.84377194 C15.6747499,7.03604967 15.6747499,7.35003511 15.4753129,7.54129009 L8.82741268,14.0367999 C8.62797568,14.2290777 8.3037627,14.2290777 8.1043257,14.0367999"></path></g></g></svg>');
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 70%;
-  background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml; utf8, <svg width="12px" height="10px" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-4.000000, -6.000000)" fill="%23131421"><path d="M8.1043257,14.0367999 L4.52468714,10.5420499 C4.32525014,10.3497722 4.32525014,10.0368095 4.52468714,9.8424863 L5.24777413,9.1439454 C5.44721114,8.95166768 5.77142411,8.95166768 5.97086112,9.1439454 L8.46638057,11.5903727 L14.0291389,6.1442083 C14.2285759,5.95193057 14.5527889,5.95193057 14.7522259,6.1442083 L15.4753129,6.84377194 C15.6747499,7.03604967 15.6747499,7.35003511 15.4753129,7.54129009 L8.82741268,14.0367999 C8.62797568,14.2290777 8.3037627,14.2290777 8.1043257,14.0367999"></path></g></g></svg>');
 }
 
+/*****************************************************
+| CLUTTER FREE MODE STYLES
+|******************************************************
+| Can enable or disable certain
+| clutter free mode css properties.
+| ----------------------------------------------------
+| NOTE:
+| Heading, Bold text, Inline text clutter free
+| mode are disabled by default, I can't find
+| a good way to make them not jump around
+| when goes from inactive to active mode.
+| It makes very ignoring writing experience.
+| But you can enable them yourself, css are all here.
+/*******************************************************/
+/**-------------------**
+| BOLD TEXT CLUTTER FREE
+**--------------------**/
+/* div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-strong,
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-em {
+  display: none;
+} */
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-em:not(.cm-formatting-em) {
+  padding: 0 0.45rem;
+}
+
+/**-------------------**
+| HEADER CLUTTER FREE
+**--------------------**/
+/* div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-header {
+  display: none !important;
+} */
+/**-------------------**
+| INLINE CODE CLUTTER FREE
+**--------------------**/
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-code {
+  position: relative;
+  display: none;
+}
+
+div:not(.CodeMirror-activeline) span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+  padding: 0 0.55rem;
+  color: rgba(14, 210, 247, 0.9) !important;
+  background-color: rgba(14, 210, 247, 0.05);
+  border-radius: 0.3rem;
+}
+
+/**-------------------**
+| HR CLUTTER FREE
+**--------------------**/
+div > .CodeMirror-line span.cm-hr {
+  display: inline-block;
+  padding: 1.7em 0;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hr {
+  position: relative;
+  opacity: 0;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line.HyperMD-hr::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: "";
+  background-image: linear-gradient(to right, transparent, var(--text-accent), transparent);
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line.HyperMD-hr::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  padding: 0.5rem;
+  color: var(--text-on-accent);
+  content: "§";
+  background-color: var(--background-primary);
+  transform: translate(-50%, -50%) rotate(60deg);
+  transform-origin: 50% 50%;
+}
+
+/**-------------------**
+| UL/OL LIST CLUTTER FREE
+**--------------------**/
+.cm-s-obsidian .CodeMirror-line span.cm-list-2 {
+  position: relative;
+  z-index: 10;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-list-ul {
+  position: relative;
+  z-index: -10;
+  display: inline-flex !important;
+  min-width: 13.5px;
+  overflow: hidden;
+  text-indent: -150%;
+  white-space: nowrap;
+}
+
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-list-ul::after {
+  position: absolute;
+  top: 0;
+  left: 0.65em;
+  font-weight: bold;
+  color: var(--text-accent);
+  text-shadow: 0 0 0.5em var(--accent-2);
+  content: "•";
+}
+
+/**-------------------**
+| BLOCK-QUOTE CLUTTER FREE
+**--------------------**/
+/* .cm-s-obsidian pre.HyperMD-quote > span {
+  padding: 1rem 2rem 1rem 3rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 2em;
+  border-top: 3px rgba(14, 210, 247, 0.5) solid;
+  border-bottom: transparent;
+  border-right: transparent;
+  background: linear-gradient(135deg, rgba(32, 28, 41, 0.45), #100e17);
+} */
+.CodeMirror-line span.cm-formatting-quote {
+  color: var(--text-accent) !important;
+}
+
+.cm-s-obsidian span.cm-quote {
+  color: var(--text-normal);
+}
+
+/* div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting-quote {
+  opacity: 0;
+} */
+/* with left border rendered instead of > */
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-formatting.cm-formatting-quote,
+div:not(.CodeMirror-activeline) > .CodeMirror-line span.cm-hmd-indent-in-quote {
+  display: inline !important;
+  color: transparent !important;
+}
+
+div:not(.CodeMirror-activeline) > pre.HyperMD-quote {
+  position: relative;
+}
+
+pre.HyperMD-quote:before {
+  position: absolute;
+  top: 0;
+  left: -0.2em;
+  width: 3px;
+  height: 100%;
+  content: "";
+  background-color: #0f7088;
+}
+
+/** ---------------------------------------------------------------
+** ███╗   ██╗██╗ ██████╗ ██╗  ██╗████████╗     ██████╗ ██╗    ██╗██╗
+** ████╗  ██║██║██╔════╝ ██║  ██║╚══██╔══╝    ██╔═══██╗██║    ██║██║
+** ██╔██╗ ██║██║██║  ███╗███████║   ██║       ██║   ██║██║ █╗ ██║██║
+** ██║╚██╗██║██║██║   ██║██╔══██║   ██║       ██║   ██║██║███╗██║██║
+** ██║ ╚████║██║╚██████╔╝██║  ██║   ██║       ╚██████╔╝╚███╔███╔╝███████╗
+** ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝        ╚═════╝  ╚══╝╚══╝ ╚══════╝
+** -- Version 1.0.1
+** -- Made by Nick
+** --------------------------------------------------------------- */
+/******************************************
+   Currently only comes in dark theme,
+   Light theme is still working in progress,
+   but it wil come soon or later.
+******************************************/
+/******************************************
+**  ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗██╗███████╗███████╗
+** ██╔════╝██║   ██║██╔════╝╚══██╔══╝██╔═══██╗████╗ ████║██║╚══███╔╝██╔════╝
+** ██║     ██║   ██║███████╗   ██║   ██║   ██║██╔████╔██║██║  ███╔╝ █████╗
+** ██║     ██║   ██║╚════██║   ██║   ██║   ██║██║╚██╔╝██║██║ ███╔╝  ██╔══╝
+** ╚██████╗╚██████╔╝███████║   ██║   ╚██████╔╝██║ ╚═╝ ██║██║███████╗███████╗
+**  ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝╚══════╝╚══════╝
+** —— You can customized the theme using the variables below
+******************************************/
 :root {
-  --font-monospace: "Jetbrains Mono", "Source Code Pro", monospace;
-  --default-font: "Lato", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
-  --font-editor-size: 1.0em;
+  /***************************************/
+  /*    FONTS RELATED                    */
+  /***************************************/
+  /** Font Customization **/
+  --default-font: "Lato", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --default-font-size: 18px;
+  /** Main text font weight **/
+  --body-font-weight: 450;
+  /** Font family for hash-tags **/
+  /** Font specially for codes **/
+  --font-monospace: "JetBrains Mono", "Hasklig", "Source Code Pro", monospace;
+  --font-editor-size: 1.0rem;
 }

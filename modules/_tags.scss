@@ -1,3 +1,7 @@
+/**-------------------**
+| TAG STYLING
+**--------------------**/
+
 .cm-s-obsidian span.cm-hashtag {
   padding-bottom: 1px;
   font-family: var(--font-monospace);
@@ -26,38 +30,140 @@ span.cm-hashtag-end {
 }
 
 // Tags
+// .tag {
+//   display: inline-block;
+//   padding: 0px 10px 2px 8px;
+//   margin: 0px 4px;
+//   font-size: 0.9em;
+//   line-height: 1.6em;
+//   color: white !important;
+//   text-align: center;
+//   text-decoration: none !important;
+//   cursor: pointer;
+//   background-color: var(--text-accent);
+//   border: none;
+//   border-radius: 14px;
+//   transition: all 400ms ease;
+
+//   &:hover {
+//     color: white;
+//     background-color: var(--text-accent-hover);
+//   }
+// }
+
+/** tags */
+
 .tag {
-  background-color: var(--text-accent);
-  border: none;
-  color: white !important;
-  font-size: 1em;
-  line-height: 1.6em;
-  padding: 0px 10px 3px 8px;
-  text-align: center;
-  text-decoration: none !important;
-  display: inline-block;
-  margin: 0px 4px;
-  cursor: pointer;
-  border-radius: 14px;
+  padding: 0px 10px 2px 8px;
+  // font-family: var(--tag-font-family);
+  font-size: 1rem;
+  color: var(--text-accent);
+  text-decoration: none;
+  white-space: nowrap;
+  // background: #100e18;
+  background: linear-gradient(to bottom, rgba(25, 22, 33) 0%, rgba(25, 22, 33) 100%);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 0 0;
+  border: 2px solid var(--text-sub-accent);
+  border-radius: 2rem;
+  transition: all 400ms ease;
+
+  &:hover {
+    color: var(--text-normal) !important;
+    background-size: 4px 50px;
+    border-color: var(--text-accent);
+    // border: 2px solid var(--text-accent);
+    opacity: 1;
+  }
 }
 
-.tag:hover {
-  color: white;
-  background-color: var(--text-accent-hover);
+h1 a.tag,
+h2 a.tag,
+h3 a.tag,
+h4 a.tag,
+h5 a.tag,
+h6 a.tag {
+  font-size: inherit !important;
 }
 
-.tag[href^="#obsidian"] {
-  background-color: #4d3ca6;
-}
+/**-------------------**
+| CUSTOMIZED TAG COLOURS
+**--------------------**/
 
-.tag[href^="#important"] {
-  background-color: red;
-}
+// .tag[href^="#obsidian"] {
+//   background-color: #4d3ca6;
+// }
 
-.tag[href^="#complete"] {
-  background-color: green;
-}
+// .tag[href^="#important"] {
+//   background-color: red;
+// }
 
-.tag[href^="#inprogress"] {
-  background-color: orange;
-}
+// .tag[href^="#complete"] {
+//   background-color: green;
+// }
+
+// .tag[href^="#inprogress"] {
+//   background-color: orange;
+// }
+
+// /* For preview mode */
+// a.tag[href*='#todo'],
+// a.tag[href*='#待完成'] {
+//   color: #fff;
+//   background-color: #be2e5e;
+// }
+// /* For Editor Mode */
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-todo:not(.cm-formatting-hashtag) {
+//   color: #ee6a96;
+// }
+
+// a.tag[href*='#working-draft'],
+// a.tag[href*='#进行中'] {
+//   color: #fff;
+//   background-color: #4d3ca6;
+// }
+
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-working-draft:not(.cm-formatting-hashtag) {
+//   color: #a897ff;
+// }
+
+// a.tag[href*='#notes'],
+// a.tag[href*='#笔记'] {
+//   color: #fff;
+//   background-color: #17b978;
+// }
+
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-notes:not(.cm-formatting-hashtag) {
+//   color: #45e0a2;
+// }
+
+// a.tag[href*='#knowledge'],
+// a.tag[href*='#知识'] {
+//   color: #fff;
+//   background-color: #005792;
+// }
+
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-knowledge:not(.cm-formatting-hashtag) {
+//   color: #6cbdf3;
+// }
+
+// a.tag[href*='#writing'],
+// a.tag[href*='#文章'] {
+//   color: #fff;
+//   background-color: #f95959;
+// }
+
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-writing:not(.cm-formatting-hashtag) {
+//   color: #ff7a7a;
+// }
+
+// a.tag[href*='#ideas'],
+// a.tag[href*='#想法'] {
+//   color: #000;
+//   background-color: #ffc93c;
+// }
+
+// .cm-s-obsidian .CodeMirror-line span.cm-tag-ideas:not(.cm-formatting-hashtag) {
+//   color: #ffdc82;
+// }

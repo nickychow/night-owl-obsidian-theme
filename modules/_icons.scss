@@ -1,13 +1,15 @@
-// Icons
+/** Side-dock icons **/
 .side-dock-ribbon-tab,
 .side-dock-ribbon-action,
-.workspace-tab-header-inner-icon,
-.nav-action-button,
-.view-action,
-.workspace-ribbon-collapse-btn {
+.workspace-ribbon-collapse-btn,
+.workspace-tab-header {
   color: var(--icon);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 350ms ease-in-out;
 
   &:hover {
-    color: var(--icon);
+    color: var(--icon-hover);
+    opacity: 1;
   }
 }

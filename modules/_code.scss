@@ -1,55 +1,565 @@
-.markdown-preview-view {
-  :not(pre) > code {
-    background-color: rgba(0, 0, 0, 0.2);
-    // border: 1px solid $gray-1;
-    border-radius: 5px;
-  }
-
-  pre {
-    // padding: 16px !important;
-    // line-height: 1.45 !important;
-
-    // border: 1px solid $gray-1 !important;
-    border-radius: 5px !important;
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    // font-family: var(--font-monospace) !important;
-
-    code {
-      background-color: unset;
-    }
-  }
-
-  // .token {
-  //   &.keyword {
-  //     color: $purple;
-  //   }
-
-  //   &.class-name {
-  //     color: $yellow;
-  //   }
-
-  //   &.operator {
-  //     color: $cyan;
-  //   }
-
-  //   &.number {
-  //     color: $orange;
-  //   }
-
-  //   &.punctuation {
-  //     color: $text-light;
-  //   }
-
-  //   &.function {
-  //     color: $sky-blue;
-  //   }
-
-  //   &.string {
-  //     color: $green;
-  //   }
-
-  //   &.comment {
-  //     color: $indigo;
-  //   }
-  // }
+/**-------------------**
+| INLINE CODE STYLING
+**--------------------**/
+.cm-s-obsidian span.cm-inline-code {
+  color: rgba(14, 210, 247, 0.9) !important;
 }
+
+.CodeMirror-activeline
+  span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.cm-s-obsidian span.cm-inline-code.cm-formatting-code {
+  display: inline-flex;
+  min-width: 0.55rem;
+  max-width: 0.55rem;
+}
+
+/**-------------------**
+| CODE FENCE STYLING
+**--------------------**/
+// General
+
+pre {
+  position: relative;
+}
+
+pre[class*='language-']:before {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  z-index: 10;
+  padding: 0.1em 0.8em;
+  font-family: var(--font-monospace);
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--text-accent) !important;
+  text-transform: uppercase;
+  content: '';
+  background: var(--background-primary);
+  border-radius: 8px;
+}
+
+pre[class$='javascript']:before,
+pre[class$='js']:before {
+  content: 'JavaScript';
+}
+
+pre[class$='typescript']:before,
+pre[class$='ts']:before {
+  content: 'typescript';
+}
+
+pre[class$='html']:before {
+  content: 'html';
+}
+
+pre[class$='css']:before {
+  content: 'css';
+}
+
+pre[class$='bash']:before,
+pre[class$='zsh']:before,
+pre[class$='console']:before,
+pre[class$='shell']:before {
+  content: 'Shell';
+}
+
+pre[class$='ps']:before,
+pre[class$='powershell']:before {
+  content: 'PowerShell';
+}
+
+pre[class$='json']:before {
+  content: 'Json';
+}
+
+pre[class$='yaml']:before {
+  content: 'YAML';
+}
+
+pre[class$='python']:before {
+  content: 'python';
+}
+
+pre[class$='rust']:before {
+  content: 'Rust';
+}
+
+pre[class$='golang']:before,
+pre[class$='go']:before {
+  content: 'golang';
+}
+
+// line number size
+.cm-s-obsidian .CodeMirror-linenumber {
+  font-size: 0.85rem;
+}
+
+//  Editor code fence
+
+.cm-s-obsidian pre.HyperMD-codeblock {
+  color: var(--text-accent);
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: var(--background-primary-alt);
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg {
+  border: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-begin-bg:before {
+  position: absolute;
+  top: -59%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  content: '';
+  background-color: var(--background-primary-alt);
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-end-bg {
+  border: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cm-s-obsidian div.HyperMD-codeblock-end-bg:before {
+  position: absolute;
+  bottom: -59%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  content: '';
+  background-color: var(--background-primary-alt);
+  border-bottom-right-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+}
+
+// Previvew
+// .markdown-preview-section {
+//   :not(pre) > code {
+//     background-color: var(--background-primary-alt);
+//     border-radius: 5px;
+//     // border: 1px solid $gray-1;
+//   }
+
+//   pre {
+//     // padding: 16px !important;
+//     // line-height: 1.45 !important;
+
+//     // border: 1px solid $gray-1 !important;
+//     background-color: var(--background-primary-alt) !important;
+//     border-radius: 5px !important;
+//     // font-family: var(--font-monospace) !important;
+
+//     code {
+//       background-color: unset;
+//     }
+//   }
+// }
+
+// /**-------------------**
+// | CODE STYLING
+// **--------------------**/
+
+// /** prism.js dracular theme **/
+
+// /*
+// * Dracula Theme for Prism.JS
+// *
+// * @author Gustavo Costa
+// * e-mail: gusbemacbe@gmail.com
+// *
+// * @contributor Jon Leopard
+// * e-mail: jonlprd@gmail.com
+// *
+// * @license MIT 2016-2018
+// */
+
+// .limit-300 {
+//   height: 300px !important;
+// }
+
+// .limit-400 {
+//   height: 400px !important;
+// }
+
+// .limit-500 {
+//   height: 500px !important;
+// }
+
+// .limit-600 {
+//   height: 600px !important;
+// }
+
+// .limit-700 {
+//   height: 700px !important;
+// }
+
+// .limit-800 {
+//   height: 800px !important;
+// }
+
+// .theme-dark .token.comment {
+//   color: rgba(98, 114, 164, 1);
+// }
+
+// .theme-dark .token.prolog {
+//   color: rgba(207, 207, 194, 1);
+// }
+
+// .theme-dark .token.tag {
+//   color: rgba(220, 104, 170, 1);
+// }
+
+// .theme-dark .token.entity {
+//   color: rgba(139, 233, 253, 1);
+// }
+
+// .theme-dark .token.atrule {
+//   color: rgba(98, 239, 117, 1);
+// }
+
+// .theme-dark .token.url {
+//   color: rgba(102, 217, 239, 1);
+// }
+
+// .theme-dark .token.selector {
+//   color: rgba(207, 207, 194, 1);
+// }
+
+// .theme-dark .token.string {
+//   color: rgba(241, 250, 140, 1);
+// }
+
+// .theme-dark .token.property {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .theme-dark .token.important {
+//   font-weight: bold;
+//   color: rgba(255, 121, 198, 1);
+// }
+
+// .theme-dark .token.punctuation {
+//   color: white;
+// }
+
+// .theme-dark .token.number {
+//   color: rgba(189, 147, 249, 1);
+// }
+
+// .theme-dark .token.function {
+//   color: rgba(80, 250, 123, 1);
+// }
+
+// .theme-dark .token.class-name {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .theme-dark .token.keyword {
+//   color: rgba(255, 121, 198, 1);
+// }
+
+// .theme-dark .token.boolean {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .theme-dark .token.operator {
+//   color: rgba(139, 233, 253, 1);
+// }
+
+// .theme-dark .token.char {
+//   color: rgba(255, 135, 157, 1);
+// }
+
+// .theme-dark .token.regex {
+//   color: rgba(80, 250, 123, 1);
+// }
+
+// .theme-dark .token.variable {
+//   color: rgba(80, 250, 123, 1);
+// }
+
+// .theme-dark .token.constant {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .theme-dark .token.symbol {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .theme-dark .token.builtin {
+//   color: rgba(255, 121, 198, 1);
+// }
+
+// .theme-dark .token.attr-value {
+//   color: #7ec699;
+// }
+
+// .theme-dark .token.deleted {
+//   color: #e2777a;
+// }
+
+// .theme-dark .token.namespace {
+//   color: #e2777a;
+// }
+
+// .theme-dark .token.bold {
+//   font-weight: bold;
+// }
+
+// .theme-dark .token.italic {
+//   font-style: italic;
+// }
+
+// .theme-dark .token {
+//   color: #ff79c6;
+// }
+
+// .language-cpp .theme-dark .token.string {
+//   color: #8be9fd;
+// }
+
+// .language-c .theme-dark .token.string {
+//   color: #8be9fd;
+// }
+
+// .theme-dark .language-css .token.selector {
+//   color: rgba(80, 250, 123, 1);
+// }
+
+// .theme-dark .language-css .token.property {
+//   color: rgba(255, 184, 108, 1);
+// }
+
+// .language-ruby .theme-dark .token.symbol {
+//   color: #8be9fd;
+// }
+
+// .language-ruby .theme-dark .token.class-name {
+//   color: #cfcfc2;
+// }
+
+// .language-java .theme-dark .token.class-name {
+//   color: #8be9fd;
+// }
+
+// .language-java span.theme-dark .token.class-name {
+//   color: #8be9fd;
+// }
+
+// .language-markup .theme-dark .token.attr-value {
+//   color: rgba(102, 217, 239, 1);
+// }
+
+// .language-markup .theme-dark .token.tag {
+//   color: rgba(80, 250, 123, 1);
+// }
+
+// .language-objectivec .theme-dark .token.property {
+//   color: #66d9ef;
+// }
+
+// .language-objectivec .theme-dark .token.string {
+//   color: #50fa7b;
+// }
+
+// .language-php .theme-dark .token.boolean {
+//   color: #8be9fd;
+// }
+
+// .language-php .theme-dark .token.function {
+//   color: #ff79c6;
+// }
+
+// .language-php .theme-dark .token.keyword {
+//   color: #66d9ef;
+// }
+
+// /** inline code */
+// .markdown-preview-view code {
+//   padding: 0 5px;
+//   color: rgba(14, 210, 247, 0.9) !important;
+//   word-wrap: break-word;
+//   overflow-wrap: break-word;
+//   background-color: rgba(14, 210, 247, 0.05);
+//   border-radius: 0.3rem;
+// }
+
+// pre.line-numbers {
+//   position: relative;
+//   padding-left: 3.8em;
+//   counter-reset: linenumber;
+// }
+
+// pre.line-numbers > code {
+//   position: relative;
+//   white-space: inherit;
+// }
+
+// .line-numbers .line-numbers-rows {
+//   position: absolute;
+//   top: 0;
+//   left: -3.8em;
+//   width: 3em; /* works for line-numbers below 1000 lines */
+//   font-size: 100%;
+//   letter-spacing: -1px;
+//   pointer-events: none;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+//   border-right: 1px solid #999;
+// }
+
+// .line-numbers-rows > span {
+//   display: block;
+//   pointer-events: none;
+//   counter-increment: linenumber;
+// }
+
+// .line-numbers-rows > span:before {
+//   display: block;
+//   padding-right: 0.8em;
+//   color: #999;
+//   text-align: right;
+//   content: counter(linenumber);
+// }
+
+// pre::-webkit-scrollbar {
+//   width: 14px;
+// }
+
+// code[class*='language-'],
+// pre[class*='language-'] {
+//   font-family: 'OperatorMonoSSmLig-Book', PT Mono, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+//     monospace !important;
+//   -webkit-hyphens: none;
+//   -moz-hyphens: none;
+//   -ms-hyphens: none;
+//   hyphens: none;
+//   line-height: 1.5;
+//   color: #ccc;
+//   text-align: left;
+//   text-shadow: none;
+//   word-break: normal;
+//   word-wrap: normal;
+//   -moz-tab-size: 4;
+//   -o-tab-size: 4;
+//   tab-size: 4;
+//   white-space: pre;
+//   background: rgb(40, 41, 54);
+//   word-spacing: normal;
+// }
+
+// /* Code blocks */
+// :not(pre) > code[class*='language-'],
+// pre[class*='language-'] {
+//   background: rgba(40, 41, 54, 1);
+// }
+
+// /* Inline code */
+// :not(pre) > code[class*='language-'] {
+//   padding: 4px 7px;
+//   white-space: normal;
+//   border-radius: 0.3em;
+// }
+
+// pre[class*='language-']::-moz-selection,
+// pre[class*='language-'] ::-moz-selection,
+// code[class*='language-']::-moz-selection,
+// code[class*='language-'] ::-moz-selection {
+//   text-shadow: none;
+//   background-color: #5a5f80;
+// }
+
+// pre[class*='language-']::selection,
+// pre[class*='language-'] ::selection,
+// code[class*='language-']::selection,
+// code[class*='language-'] ::selection {
+//   text-shadow: none;
+//   background-color: #5a5f80;
+// }
+
+// @media print {
+//   code[class*='language-'],
+//   pre[class*='language-'] {
+//     text-shadow: none;
+//   }
+// }
+
+// .theme-dark :not(pre) > code[class*='language-'],
+// .theme-dark pre[class*='language-'] {
+//   background-color: var(--background-secondary);
+// }
+
+// .markdown-preview-view img {
+//   display: block;
+//   margin-right: auto;
+//   margin-left: auto;
+//   border-radius: 8px;
+// }
+
+// /** code syntax theme **/
+
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-comment {
+//   color: #6272a4;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-string,
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-string-2 {
+//   color: #f1fa8c;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-number {
+//   color: #bd93f9;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable {
+//   color: #50fa7b;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable-2 {
+//   color: white;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-def {
+//   color: #50fa7b;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-operator {
+//   color: #ff79c6;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-keyword {
+//   color: #ff79c6;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-atom {
+//   color: #bd93f9;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-meta {
+//   color: #f8f8f2;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-tag {
+//   color: #ff79c6;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-attribute {
+//   color: #50fa7b;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-qualifier {
+//   color: #50fa7b;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-property {
+//   color: #66d9ef;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-builtin {
+//   color: #50fa7b;
+// }
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-variable-3,
+// .theme-dark .cm-s-obsidian pre.HyperMD-codeblock span.cm-type {
+//   color: #ffb86c;
+// }

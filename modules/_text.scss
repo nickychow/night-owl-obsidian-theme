@@ -1,3 +1,7 @@
+/**-------------------**
+| STRONG/BOLD STYLES
+**--------------------**/
+
 // Bold
 .cm-strong,
 .markdown-preview-section strong {
@@ -40,6 +44,15 @@ a {
   text-decoration: none;
 }
 
+/**-------------------**
+| <KBD> STYLING
+**--------------------**/
+
+strong kbd,
+.cm-strong kbd {
+  -webkit-text-fill-color: initial;
+}
+
 // Spell Error
 .CodeMirror .cm-spell-error {
   background-image: unset;
@@ -66,4 +79,21 @@ a {
 .cm-s-obsidian span.cm-formatting-task {
   font-weight: 500;
   color: var(--task-mark);
+}
+
+/**-------------------**
+| FRONT-META STYLING
+**--------------------**/
+
+// META
+.cm-s-obsidian span.cm-def,
+.cm-s-obsidian span.cm-atom {
+  color: var(--text-faint);
+}
+.cm-s-obsidian span.cm-meta {
+  color: var(--text-accent);
+}
+
+.cm-s-obsidian span.cm-string {
+  color: var(--text-sub-accent);
 }

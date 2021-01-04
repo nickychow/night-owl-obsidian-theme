@@ -1,115 +1,107 @@
-// Title Bar
+/** GENERAL STYLES **/
+// body {
+//   font-size: var(--default-font-size, 16px);
+//   font-weight: var(--body-font-weight, normal);
+// }
+
+/** TITLE BAR **/
 .titlebar {
-  background-color: unset;
-  border-bottom: 1px solid var(--border);
+  background-color: var(--background-primary-alt);
 }
 
-// Status Bar
+.titlebar-text {
+  color: var(--text-accent);
+}
+
+/** STATUS BAR **/
 .status-bar {
-  max-height: unset;
+  // max-height: unset;
   padding-bottom: 2px;
   font-size: 12px;
-  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  background-color: var(--background-primary-alt);
+  border-color: var(--background-primary-alt);
 }
 
-.nav-file-title,
-.nav-folder-title {
-  font-size: 13px;
+/** NAVIGATION / SIDE-DOCK **/
+
+.nav-folder-collapse-indicator {
+  color: var(--text-accent);
 }
 
+.nav-file.is-active > .nav-file-title,
+.nav-file.is-active > .nav-folder-title,
+.nav-file.is-active > .nav-folder-collapse-indicator,
+.nav-folder.is-active > .nav-file-title,
+.nav-folder.is-active > .nav-folder-title,
+.nav-folder.is-active > .nav-folder-collapse-indicator {
+  color: var(--text-accent);
+}
+
+/** Left side menu -- collapsed **/
+.workspace-ribbon.is-collapsed {
+  background-color: var(--background-primary-alt);
+}
+/** Left side menu border **/
+.workspace-ribbon.mod-left.is-collapsed,
+.workspace-ribbon.mod-right.is-collapsed {
+  border-color: var(--background-primary-alt);
+}
+
+/** Navigation tabs **/
+.workspace-tab-header.is-active {
+  color: var(--text-accent);
+  opacity: 1;
+}
+
+/** Folder List main title **/
+.nav-folder.mod-root > .nav-file-title,
+.nav-folder.mod-root > .nav-folder-title {
+  color: var(--text-accent);
+}
+
+/** Folder Lists **/
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {
+  color: var(--text-accent);
+}
+
+/** Folder list active arrow **/
+body:not(.is-grabbing) .nav-file-title:hover .nav-folder-collapse-indicator,
+body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
+  color: var(--text-accent);
+}
+
+/** Header Title **/
 .view-header-title {
   font-size: 14px;
 }
 
-.workspace-ribbon.mod-left {
-  border-right: 1px solid var(--border);
+/** View Header title **/
+.workspace-leaf.mod-active .view-header-title {
+  color: var(--text-accent);
 }
 
-.workspace-ribbon.mod-right {
-  border-left: 1px solid var(--border);
+/** Little tag styles (at links) **/
+.pane-list-item:hover .pane-list-item-ending-flair {
+  color: var(--text-accent);
+  background-color: var(--background-secondary);
 }
 
-.view-header {
-  border-bottom: 1px solid var(--border) !important;
+/** SETTINGS STYLES **/
+
+.workspace-drop-overlay {
+  background-color: var(--background-primary-alt);
 }
 
-.workspace-tab-header-container {
-  height: 36px;
-  padding-top: 4px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+/* except list markers */
+span.cm-formatting-list,
+/*code block backticks */ span.cm-formatting-code-block.cm-hmd-codeblock,
+/* optionally header hashes */ span.cm-formatting-header {
+  display: inline !important;
 }
 
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
-.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-  width: 1px;
-  height: 100vh;
-  background-color: var(--border);
-}
-
-.workspace-tabs {
-  padding: 0 0 30px 0;
-}
-
-.nav-header {
-  padding: 8px 20px 4px 20px;
-  border-bottom: 1px solid var(--border);
-}
-
-.workspace-leaf-content[data-type="search"] .nav-action-button,
-.workspace-leaf-content[data-type="backlink"] .nav-action-button {
-  padding: 0 10px;
-  margin: 0;
-  border-radius: 4px;
-}
-
-.nav-buttons-container {
-  justify-content: left;
-  margin-left: -20px;
-}
-
-.side-dock-ribbon-action {
-  padding: 5px 0;
-}
-
-.workspace-ribbon-collapse-btn {
-  padding: 9px 5px 4px 5px;
-  margin-top: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.workspace-ribbon.mod-right.is-collapsed {
-  border-left-color: var(--border);
-}
-
-.workspace-ribbon.mod-left.is-collapsed {
-  border-right-color: var(--border);
-}
-
-.nav-files-container {
-  overflow-y: hidden;
-}
-
-.cm-s-obsidian .CodeMirror-linenumber {
-  color: var(--line-numbers);
-}
-
-.CodeMirror-gutter-wrapper {
-  left: -40px !important;
-}
-
-.side-dock-settings {
-  margin-bottom: 22px;
-}
-
-.side-dock-actions {
-  margin-top: 5px;
-}
-
-.workspace-tab-container-inner {
-  margin-left: -20px;
-}
-
-.view-actions {
-  margin-right: -10px;
+.theme-dark .notice {
+  color: var(--text-accent);
+  background-color: var(--background-primary-alt);
 }

@@ -1,12 +1,22 @@
-.markdown-preview-section blockquote {
-  position: relative;
-  padding: 1rem 0 1rem 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 0px solid var(--list-mark);
-  border-left-width: 4px;
+/**-------------------**
+| BLOCKQUOTE STYLING
+**--------------------**/
+
+/* Remove blockquote left margin */
+blockquote {
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+}
+
+/* blockquote style overwrite */
+
+.markdown-preview-section blockquote {
+  position: relative;
   display: block;
+  padding: 1rem 0 1rem 1rem;
+  background-color: var(--background-primary-alt);
+  border: 0px solid var(--list-mark);
+  border-left-width: 4px;
 }

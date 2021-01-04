@@ -5,9 +5,9 @@
 .theme-dark {
   // Backgrounds
   --background-primary: #{colors.$dark1};
-  --background-primary-alt: #{colors.$dark1};
+  --background-primary-alt: #{colors.$dark4};
   --background-secondary: #{colors.$dark1};
-  --background-secondary-alt: #{colors.$dark1};
+  --background-secondary-alt: #{colors.$dark4};
 
   // Borders
   --background-modifier-border: #{colors.$dark3};
@@ -22,10 +22,12 @@
   --text-italic: #{colors.$blue};
   --text-italic-muted: #{functions.mute-color(colors.$blue)};
 
-  --text-faint: #{colors.$light1};
-  --text-muted: #{colors.$light1};
-  --text-accent: #{colors.$orange};
+  --text-faint: #{functions.mute-color(colors.$light1)};
+  --text-muted: #{functions.mute-color(colors.$light1)};
+  --text-accent: #{colors.$lightblue};
   --text-on-accent: #{colors.$light1};
+  --text-sub-accent:#{functions.mute-color(colors.$lightblue)};
+  // --text-dim: #45aaff;
   --text-error: #{colors.$red};
 
   --text-selection: #{colors.$dark3};
@@ -35,11 +37,11 @@
   --link-hover: #{color.scale(colors.$orange, $lightness: 25%)};
 
   // Headings
-  --text-title-h1: #{colors.$purple};
-  --text-title-h1-muted: #{functions.mute-color(colors.$purple)};
+  --text-title-h1: #{colors.$blue};
+  --text-title-h1-muted: #{functions.mute-color(colors.$blue)};
 
-  --text-title-h2: #{colors.$blue};
-  --text-title-h2-muted: #{functions.mute-color(colors.$blue)};
+  --text-title-h2: #{colors.$lightblue};
+  --text-title-h2-muted: #{functions.mute-color(colors.$lightblue)};
 
   --text-title-h3: #{colors.$teal};
   --text-title-h3-muted: #{functions.mute-color(colors.$teal)};
@@ -59,8 +61,8 @@
   --button-text: #{colors.$dark0};
 
   // Icons
-  --icon: #{colors.$light1};
-  --icon-hover: #{colors.$yellow};
+  --icon: #{colors.$light0};
+  --icon-hover: #{colors.$dark7};
 
   // Tags
   --tag-text: #{colors.$blue};
