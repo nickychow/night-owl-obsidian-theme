@@ -21,6 +21,14 @@
 | CODE FENCE STYLING
 **--------------------**/
 // General
+.markdown-preview-view {
+  :not(pre) > code {
+    color: var(--text-accent);
+    // background-color: var(--background-primary-alt);
+    // border-radius: 5px;
+    // border: 1px solid $gray-1;
+  }
+}
 
 pre {
   position: relative;
@@ -77,8 +85,12 @@ pre[class$='json']:before {
   content: 'Json';
 }
 
-pre[class$='yaml']:before {
+pre[class$='yaml']:not(.frontmatter):before {
   content: 'YAML';
+}
+
+pre[class$='yaml'].frontmatter::before {
+  content: 'META';
 }
 
 pre[class$='python']:before {
@@ -87,6 +99,10 @@ pre[class$='python']:before {
 
 pre[class$='rust']:before {
   content: 'Rust';
+}
+
+pre[class$='hcl']:before {
+  content: 'HCL';
 }
 
 pre[class$='golang']:before,

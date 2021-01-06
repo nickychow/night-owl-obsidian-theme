@@ -542,6 +542,10 @@ blockquote {
 /**-------------------**
 | CODE FENCE STYLING
 **--------------------**/
+.markdown-preview-view :not(pre) > code {
+  color: var(--text-accent);
+}
+
 pre {
   position: relative;
 }
@@ -597,8 +601,12 @@ pre[class$=json]:before {
   content: "Json";
 }
 
-pre[class$=yaml]:before {
+pre[class$=yaml]:not(.frontmatter):before {
   content: "YAML";
+}
+
+pre[class$=yaml].frontmatter::before {
+  content: "META";
 }
 
 pre[class$=python]:before {
@@ -607,6 +615,10 @@ pre[class$=python]:before {
 
 pre[class$=rust]:before {
   content: "Rust";
+}
+
+pre[class$=hcl]:before {
+  content: "HCL";
 }
 
 pre[class$=golang]:before,
