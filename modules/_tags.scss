@@ -52,11 +52,12 @@ span.cm-hashtag-end {
 // }
 
 /** tags */
-
-.tag {
+.tag,
+.frontmatter-container .tag,
+.frontmatter-container .frontmatter-alias {
   padding: 0px 10px 2px 8px;
   // font-family: var(--tag-font-family);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-accent);
   text-decoration: none;
   white-space: nowrap;

@@ -4,8 +4,9 @@
   --background-primary-alt: #000C1D;
   --background-secondary: #031525;
   --background-secondary-alt: #000C1D;
-  --background-modifier-border: #1d4667;
+  --background-modifier-border: #000C1D;
   --border: #0b2942;
+  --preview-border: #122d42;
   --text-normal: #d6deeb;
   --text-bold: #ecc48d;
   --text-bold-muted: #997749;
@@ -232,7 +233,7 @@ span.cm-formatting-header {
   padding-bottom: 0.3em !important;
   margin: 2rem 0 0.7rem 0 !important;
   font-size: 1.6rem !important;
-  border-bottom: 1px solid #2e2e2e !important;
+  border-bottom: 1px solid var(--preview-border) !important;
 }
 
 .markdown-preview-section h2::after {
@@ -428,9 +429,11 @@ span.cm-hashtag-end {
 }
 
 /** tags */
-.tag {
+.tag,
+.frontmatter-container .tag,
+.frontmatter-container .frontmatter-alias {
   padding: 0px 10px 2px 8px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-accent);
   text-decoration: none;
   white-space: nowrap;
@@ -442,7 +445,9 @@ span.cm-hashtag-end {
   border-radius: 2rem;
   transition: all 400ms ease;
 }
-.tag:hover {
+.tag:hover,
+.frontmatter-container .tag:hover,
+.frontmatter-container .frontmatter-alias:hover {
   color: var(--text-normal) !important;
   background-size: 4px 50px;
   border-color: var(--text-accent);
@@ -512,13 +517,16 @@ blockquote {
 }
 
 /* blockquote style overwrite */
-.markdown-preview-section blockquote {
+.markdown-preview-view blockquote {
   position: relative;
   display: block;
   padding: 1rem 0 1rem 1rem;
   background-color: var(--background-primary-alt);
   border: 0px solid var(--list-mark);
   border-left-width: 4px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  border-radius: 0 4px 4px 0;
 }
 
 /**-------------------**

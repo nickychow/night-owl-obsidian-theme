@@ -12,11 +12,14 @@ blockquote {
 
 /* blockquote style overwrite */
 
-.markdown-preview-section blockquote {
+.markdown-preview-view blockquote {
   position: relative;
   display: block;
   padding: 1rem 0 1rem 1rem;
   background-color: var(--background-primary-alt);
   border: 0px solid var(--list-mark);
   border-left-width: 4px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  border-radius: 0 4px 4px 0;
 }

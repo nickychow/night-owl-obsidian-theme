@@ -92,7 +92,7 @@
   padding-bottom: 0.3em !important;
   margin: 2rem 0 0.7rem 0 !important;
   font-size: 1.6rem !important;
-  border-bottom: 1px solid hsl(0, 0%, 18%) !important;
+  border-bottom: 1px solid var(--preview-border) !important;
 }
 
 .markdown-preview-section h2::after {
