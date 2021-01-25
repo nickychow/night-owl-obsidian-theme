@@ -18,7 +18,7 @@
   --text-on-accent: #d6deeb;
   --text-sub-accent:#275963;
   --text-error: #ff6363;
-  --text-selection: #1d4667;
+  --text-selection: #4373c2;
   --text-highlight-bg: #1d4667;
   --link: #f78c6c;
   --link-hover: #f9a991;
@@ -196,7 +196,8 @@ span.cm-formatting-header {
   position: absolute;
   top: 0;
   right: calc(100% + 0.75em);
-  font-size: 1rem;
+  left: auto;
+  font-size: 0.85rem;
   font-weight: bold;
   font-variant: "small-caps";
   color: var(--text-muted) !important;
@@ -694,7 +695,7 @@ pre[class$=go]:before {
   height: 18px;
   padding: 0;
   margin-right: 10px;
-  margin-left: -18px;
+  margin-left: -10px;
   line-height: 0;
   filter: none;
   border: 1px solid var(--text-sub-accent) !important;
@@ -871,6 +872,80 @@ pre.HyperMD-quote:before {
   background-color: #0f7088;
 }
 
+/* Naked Embeds */
+.markdown-embed-title {
+  display: none;
+}
+
+.markdown-preview-view .markdown-embed-content > :first-child {
+  margin-top: 0;
+}
+
+.markdown-preview-view .markdown-embed-content > :last-child {
+  margin-bottom: 0;
+}
+
+/*remove the following two line, you will get border and scroll*/
+.markdown-preview-view .markdown-embed {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.markdown-preview-view .markdown-embed-content {
+  max-height: unset;
+  background-color: var(--background-secondary);
+  /*define different bg color*/
+}
+
+/* the link on the top right corner*/
+.markdown-embed-link {
+  color: var(--text-faint) !important;
+}
+
+.markdown-embed-link:hover {
+  color: var(--text-accent) !important;
+}
+
+/* remove the first heading*/
+/* Remove embed yaml front matter */
+.markdown-embed-content > .language-yaml {
+  display: none;
+}
+
+/*============bigger link popup preview  ================*/
+.popover.hover-popover {
+  width: 500px;
+  /* was 400 */
+  min-height: 100px;
+  max-height: 800px;
+  /* was 300 */
+  transform: scale(0.8);
+  /* makes the content smaller */
+}
+
+.cm-hmd-list-indent .cm-tab, ul ul {
+  position: relative;
+}
+
+.cm-hmd-list-indent .cm-tab::before, ul ul::before {
+  position: absolute;
+  content: "";
+  border-left: 1px solid var(--text-highlight-bg);
+}
+
+.cm-hmd-list-indent .cm-tab::before {
+  top: -5px;
+  bottom: -4px;
+  left: 0;
+}
+
+ul ul::before {
+  top: 0;
+  bottom: 0;
+  left: -11px;
+}
+
 /** ---------------------------------------------------------------
 ** ███╗   ██╗██╗ ██████╗ ██╗  ██╗████████╗     ██████╗ ██╗    ██╗██╗
 ** ████╗  ██║██║██╔════╝ ██║  ██║╚══██╔══╝    ██╔═══██╗██║    ██║██║
@@ -895,6 +970,7 @@ pre.HyperMD-quote:before {
 **  ╚═════╝ ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝╚══════╝╚══════╝
 ** —— You can customized the theme using the variables below
 ******************************************/
+/* stylelint-disable */
 :root {
   /***************************************/
   /*    FONTS RELATED                    */
@@ -910,3 +986,5 @@ pre.HyperMD-quote:before {
   --font-monospace: "JetBrains Mono", "Hasklig", "Source Code Pro", monospace;
   --font-editor-size: 1.0rem;
 }
+
+/* stylelint-enable */

@@ -32,6 +32,9 @@
 @use "modules/code";
 @use "modules/checkboxes";
 @use "modules/clutterfree.scss";
+@use "modules/nakedembed.scss";
+@use "modules/preview.scss";
+@use "modules/bulletpointlines.scss";
 
 /******************************************
 **  ██████╗██╗   ██╗███████╗████████╗ ██████╗ ███╗   ███╗██╗███████╗███████╗
@@ -43,6 +46,7 @@
 ** —— You can customized the theme using the variables below
 ******************************************/
 
+/* stylelint-disable */
 :root {
   /***************************************/
   /*    FONTS RELATED                    */
@@ -65,3 +69,4 @@
   --font-monospace: "JetBrains Mono", "Hasklig", "Source Code Pro", monospace;
   --font-editor-size: 1.0rem;
 }
+/* stylelint-enable */

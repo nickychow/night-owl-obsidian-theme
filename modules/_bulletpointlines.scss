@@ -1,0 +1,21 @@
+.cm-hmd-list-indent .cm-tab, ul ul {
+  position: relative;
+}
+
+.cm-hmd-list-indent .cm-tab::before, ul ul::before {
+  position: absolute;
+  content:'';
+  border-left: 1px solid var(--text-highlight-bg);
+}
+
+.cm-hmd-list-indent .cm-tab::before {
+  top: -5px;
+  bottom: -4px;
+  left: 0;
+}
+
+ul ul::before {
+  top: 0;
+  bottom: 0;
+  left: -11px;
+}
